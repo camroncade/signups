@@ -6,14 +6,10 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic functional test example.
-     *
-     * @return void
-     */
-    public function testBasicExample()
+
+    /** @test */
+    function just_a_test()
     {
-        $this->visit('/')
-             ->see('Laravel 5');
+        $this->assertTrue(true);
     }
 }

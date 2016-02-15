@@ -19,3 +19,23 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Signup::class, function (Faker\Generator $faker) {
+    return [
+        'slug' => $faker->slug,
+        'name' => $faker->company,
+    ];
+});
+
+$factory->define(App\Group::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->company,
+    ];
+});
+
+$factory->define(App\Field::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->company,
+        'description' => $faker->sentence(6),
+    ];
+});
