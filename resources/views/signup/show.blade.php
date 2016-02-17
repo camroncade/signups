@@ -27,7 +27,7 @@
             @if( ! is_null($signup->description) )
             <div class="col-sm-12">
                 <p style="font-size: 1.2em;">
-                    {{ $signup->description }}
+                    {!! $signup->description !!}
                 </p> 
                 <hr />
             </div>
