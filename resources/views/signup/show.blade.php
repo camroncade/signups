@@ -24,6 +24,15 @@
                 <h3 class="text-muted">{{ $signup->name }}</h3>
             </div>
 
+            @if( ! is_null($signup->description) )
+            <div class="col-sm-12">
+                <p style="font-size: 1.2em;">
+                    {{ $signup->description }}
+                </p> 
+                <hr />
+            </div>
+            @endif
+
             <div class="col-sm-12 form-horizontal">
                 @foreach($signup->groups as $group)
                     <h3 style="font-weight: 300;">{{ $group->title }}</h3>
