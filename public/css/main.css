@@ -508,7 +508,8 @@ body {
       height: 100%;
       background-color: whitesmoke;
       text-align: center;
-      font-size: 1rem; }
+      font-size: 1rem;
+      color: #999999; }
       .group .input .form-sort .move-up {
         height: 50%;
         width: 100%; }
@@ -526,7 +527,8 @@ body {
       .group .input .form-sort .move-up:hover, .group .input .form-sort .move-down:hover {
         background-color: #ededed;
         cursor: hand;
-        cursor: pointer; }
+        cursor: pointer;
+        color: #444444; }
   .group .add-new-field {
     width: 100%;
     background-color: #E84545;
@@ -541,7 +543,8 @@ body {
     right: 0;
     height: 100%;
     width: 4rem;
-    background-color: whitesmoke; }
+    background-color: whitesmoke;
+    color: #999999; }
     .group .group-sort .move-up {
       height: 50%; }
       .group .group-sort .move-up i {
@@ -557,7 +560,8 @@ body {
     .group .group-sort .move-up:hover, .group .group-sort .move-down:hover {
       background-color: #ededed;
       cursor: hand;
-      cursor: pointer; }
+      cursor: pointer;
+      color: #444444; }
 
 .add-new-group {
   width: 100%;
