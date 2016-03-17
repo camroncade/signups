@@ -27,5 +27,17 @@ class FieldsController extends Controller
         }
         $field->save();
     }
-    
+
+    public function updateSort(Request $request)
+    {
+        if ($request->has('sort')) {
+            $newOrder = json_decode($request->input('sort'));
+
+            foreach ($newOrder as $field) {
+                Field::where('id', '=', $field->id)
+                     ->update(['sort_index' => $field->index]);
+            }
+        }
+    }
+
 }

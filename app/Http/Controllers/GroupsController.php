@@ -23,7 +23,19 @@ class GroupsController extends Controller
             if (in_array($name, $updatable))
                 $group->$name = $value;
         }
-
         $group->save();
     }
+
+    public function updateSort(Request $request)
+    {
+         if ($request->has('sort')) {
+             $newOrder = json_decode($request->input('sort'));
+
+             foreach ($newOrder as $group) {
+                Group::where('id', '=', $group->id)
+                     ->update(['sort_index' => $group->index]);
+             }
+        }
+    }
+
 }

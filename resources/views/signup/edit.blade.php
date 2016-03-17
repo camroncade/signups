@@ -14,11 +14,11 @@
         <div class="container">
             <input type="text" value="{{ $signup->name }}" placeholder="Form Name"  id="form-name" />
 
-           @foreach($signup->groups as $group) 
-            <div class="group">
+           @foreach($signup->groups->sortBy('sort_index') as $group) 
+            <div class="group" group-id="{{ $group->id }}">
                 <input type="text" value="{{ $group->name }}" group-id="{{ $group->id }}" placeholder="Group name" class="group-name">
-                @foreach($group->fields as $field)
-                <div class="input">
+                @foreach($group->fields->sortBy('sort_index') as $field)
+                <div class="input" field-id="{{ $field->id }}">
                     <div class="name">
                         <input type="text" field-id="{{ $field->id }}" class="field-name" value="{{ $field->name }}" placeholder="name" />
                     </div>
