@@ -4,4 +4,4 @@ requirejs.config({
     },
 });
 
-require(['edit']);
+require(['edit', 'reorder']);
