@@ -440,6 +440,22 @@ body {
   position: absolute;
   width: 1px; }
 
+#form-name {
+  font-size: 40px;
+  line-height: 56px;
+  width: 100%;
+  background-color: #ededed;
+  border: 0px;
+  border-bottom: 1px dashed #222222;
+  padding-bottom: 1px;
+  margin: 2rem 0 1rem 0; }
+
+#form-name:focus {
+  outline: none;
+  border-bottom: 2px solid #2D4059;
+  padding-bottom: 0;
+  background-color: #e0e0e0; }
+
 .group {
   background-color: #fff;
   margin: 1rem 0;
@@ -448,14 +464,42 @@ body {
   .group h2 {
     margin: 0 0 1rem 0;
     font-size: 1.6rem; }
+  .group .group-name {
+    border: 0px;
+    border-bottom: 1px dashed #222222;
+    width: 100%;
+    font-size: 25.6px;
+    font-weight: 700; }
+  .group .group-name:focus {
+    background-color: #fafafa;
+    outline: none;
+    border-bottom: 1px solid #2D4059; }
   .group .input {
     border: 1px solid #ededed;
     margin: 1rem 0;
-    padding: 0.5rem;
+    padding: 0.5rem 2.5rem 0.5rem 0.5rem;
     position: relative; }
-    .group .input .description {
+    .group .input .field-name {
+      border: none;
+      border-bottom: 1px dashed #222222;
+      width: 100%; }
+    .group .input .field-name:focus {
+      border-bottom: 1px solid #2D4059;
+      outline: none;
+      background-color: #fafafa; }
+    .group .input .field-description {
       color: #444444;
-      font-size: 1rem; }
+      line-height: 1.4rem;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      height: 1.4rem;
+      width: 100%;
+      border: none; }
+    .group .input .field-description:focus {
+      height: 2.8rem;
+      border-bottom: 1px solid #444444;
+      outline: none;
+      background-color: #fafafa; }
     .group .input .form-sort {
       position: absolute;
       top: 0;

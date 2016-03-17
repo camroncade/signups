@@ -1,3 +1,21 @@
+#form-name {
+    font-size: 40px;
+    line-height: 56px;
+    width: 100%;
+    background-color: $light-grey;
+    border: 0px;
+    border-bottom: 1px dashed $text-color;
+    padding-bottom: 1px;
+    margin: 2rem 0 1rem 0;
+}
+
+#form-name:focus {
+    outline: none; 
+    border-bottom: 2px solid #2D4059;
+    padding-bottom: 0;
+    background-color: darken($light-grey, 5%);
+}
+
 .group {
     background-color: #fff;
     margin: 1rem 0;
@@ -9,19 +27,54 @@
         font-size: 1.6rem;
     }
 
+    .group-name {
+        border: 0px;
+        border-bottom: 1px dashed $text-color; 
+        width: 100%;
+        font-size: 25.6px;
+        font-weight: 700;
+    }
+
+    .group-name:focus {
+        background-color: lighten($light-grey, 5%); 
+        outline: none;
+        border-bottom: 1px solid #2D4059;
+    }
+
     .input {
         border: 1px solid $light-grey; 
         margin: 1rem 0;
-        padding: 0.5rem;
+        padding: 0.5rem 2.5rem 0.5rem 0.5rem;
         position: relative;
 
-        .name {
-        
+        .field-name {
+            border: none; 
+            border-bottom: 1px dashed $text-color;
+            width: 100%;
         }
 
-        .description {
-            color: $dark-grey; 
-            font-size: 1rem;
+        .field-name:focus {
+            border-bottom: 1px solid #2D4059;
+            outline: none;
+            background-color: lighten($light-grey, 5%);
+        }
+
+        .field-description {
+            color: $dark-grey;
+            line-height: 1.4rem;
+            font-size: 1rem; 
+            margin-top: 0.5rem;
+
+            height: 1.4rem;
+            width: 100%;
+            border: none;
+        }
+
+        .field-description:focus {
+            height: 2.8rem; 
+            border-bottom: 1px solid $dark-grey;
+            outline: none;
+            background-color: lighten($light-grey, 5%);
         }
 
         .form-sort {

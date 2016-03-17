@@ -10,18 +10,18 @@
     </head>
     <body>
         <div class="container">
-            <h1>{{ $signup->name }}</h1>
+            <input type="text" value="{{ $signup->name }}" placeholder="Form Name"  id="form-name" />
 
            @foreach($signup->groups as $group) 
             <div class="group">
-                <h2>{{ $group->title }}</h2>
+                <input type="text" value="{{ $group->title }}" placeholder="Group name" class="group-name">
                 @foreach($group->fields as $field)
                 <div class="input">
                     <div class="name">
-                        {{ $field->name }}
+                        <input type="text" size='' class="field-name" value="{{ $field->name }}" placeholder="name" />
                     </div>
                     <div class="description">
-                        {{ isset($field->description) ? 'Click to enter a description' : $field->description }}
+                        <textarea name="description" class="field-description" placeholder="Description (optional)">{{ $field->description }}</textarea>
                     </div>
                     
                     <div class="form-sort">
