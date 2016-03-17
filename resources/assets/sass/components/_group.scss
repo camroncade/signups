@@ -1,0 +1,124 @@
+.group {
+    background-color: #fff;
+    margin: 1rem 0;
+    padding: 1rem 5rem 1rem 1rem;
+    position: relative;
+
+    h2 {
+        margin: 0 0 1rem 0; 
+        font-size: 1.6rem;
+    }
+
+    .input {
+        border: 1px solid $light-grey; 
+        margin: 1rem 0;
+        padding: 0.5rem;
+        position: relative;
+
+        .name {
+        
+        }
+
+        .description {
+            color: $dark-grey; 
+            font-size: 1rem;
+        }
+
+        .form-sort {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 2rem;
+            height: 100%;
+            background-color: lighten($light-grey, 3%);
+            text-align: center;
+            font-size: 1rem;
+
+            .move-up {
+                height: 50%;
+                width: 100%;
+
+                i {
+                    position: absolute;
+                    top: 0.5rem;
+                    left: 28%;
+                }
+            }
+
+            .move-down {
+                height: 50%;
+                width: 100%;
+
+                i {
+                    position: absolute;
+                    bottom: 0.5rem; 
+                    left: 28%;
+                }
+            }
+
+            .move-up:hover, .move-down:hover {
+                background-color: $light-grey;
+                cursor: hand; cursor: pointer;
+            }
+        }
+    }
+
+    .add-new-field {
+        width: 100%; 
+        background-color: $brand-color;
+        color: #fff;
+        border: 0px;
+        padding: 0.5rem 0;
+    }
+
+    .add-new-field:hover {
+        background-color: darken($brand-color, 5%);
+    }
+
+    .group-sort {
+        position: absolute;
+        top: 0;
+        right: 0; 
+        height: 100%;
+        width: 4rem;
+        background-color: lighten($light-grey, 3%);
+
+        .move-up {
+            height: 50%;
+
+            i {
+                position: absolute;
+                top: 1.5rem;
+                left: 35%; 
+            }
+        }
+
+        .move-down {
+            height: 50%; 
+
+            i {
+                position: absolute;
+                bottom: 1.5rem;
+                left: 35%
+            }
+        }
+
+        .move-up:hover, .move-down:hover {
+            background-color: $light-grey; 
+            cursor: hand; cursor: pointer;
+        }
+    }
+}
+
+.add-new-group {
+        width: 100%;
+        background-color: #2D4059;  
+        color: #fff;
+        border: 0px;
+        padding: 1rem 0;
+        margin: 1rem 0;
+}
+
+.add-new-group:hover {
+    background-color: darken(#2D4059, 5%);
+}

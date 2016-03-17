@@ -12,10 +12,15 @@ class SignupsController extends Controller
 {
     public function show($slug)
     {
-        $signup = Signup::where('slug', '=', $slug)->first();
-
         return view('signup.show', [
-            'signup' => $signup,
+            'signup' => Signup::where('slug', '=', $slug)->first(),
+        ]);
+    }
+
+    public function edit($slug)
+    {
+        return view('signup.edit', [
+            'signup' => Signup::where('slug', '=', $slug)->first(),
         ]);
     }
 }

@@ -13,6 +13,7 @@
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('/{slug}', 'SignupsController@show');
+    Route::get('/{slug}/edit', 'SignupsController@edit');
 
     Route::post('/fields/{id}', 'FieldsController@update');
 });
