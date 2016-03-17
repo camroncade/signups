@@ -35,7 +35,7 @@
 
             <div class="col-sm-12 form-horizontal">
                 @foreach($signup->groups as $group)
-                    <h3 style="font-weight: 300;">{{ $group->title }}</h3>
+                    <h3 style="font-weight: 300;">{{ $group->name }}</h3>
                     @foreach($group->fields as $field)
                         <div class="form-group">
                             <label class="col-sm-3 control-label">{{ $field->name }}</label>

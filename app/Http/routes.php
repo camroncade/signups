@@ -14,6 +14,9 @@
 Route::group(['middleware' => ['web']], function () {
     Route::get('/{slug}', 'SignupsController@show');
     Route::get('/{slug}/edit', 'SignupsController@edit');
+    Route::post('/{slug}/edit', 'SignupsController@update');
 
     Route::post('/fields/{id}', 'FieldsController@update');
+
+    Route::post('/groups/{id}', 'GroupsController@update');
 });

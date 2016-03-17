@@ -3,6 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
+        <meta name="signup-id" content="{{ $signup->id }}">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Edit Signup Form - {{ $signup->name }}</title>
         <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,100' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -14,14 +16,14 @@
 
            @foreach($signup->groups as $group) 
             <div class="group">
-                <input type="text" value="{{ $group->title }}" placeholder="Group name" class="group-name">
+                <input type="text" value="{{ $group->name }}" group-id="{{ $group->id }}" placeholder="Group name" class="group-name">
                 @foreach($group->fields as $field)
                 <div class="input">
                     <div class="name">
-                        <input type="text" size='' class="field-name" value="{{ $field->name }}" placeholder="name" />
+                        <input type="text" field-id="{{ $field->id }}" class="field-name" value="{{ $field->name }}" placeholder="name" />
                     </div>
                     <div class="description">
-                        <textarea name="description" class="field-description" placeholder="Description (optional)">{{ $field->description }}</textarea>
+                        <textarea name="description" field-id="{{ $field->id }}" class="field-description" placeholder="Description (optional)">{{ $field->description }}</textarea>
                     </div>
                     
                     <div class="form-sort">
@@ -52,4 +54,5 @@
 
         </div>
     </body>
+    <script data-main="/js/build" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.22/require.min.js" type="text/javascript" charset="utf-8"></script>
 </html>

@@ -6,26 +6,24 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Field;
+use App\Group;
 
-class FieldsController extends Controller
+class GroupsController extends Controller
 {
     public function update(Request $request, $id)
     {
         $updatable = [
-            'value',
             'name',
             'description',
         ];
 
-        $field = Field::find($id);
+        $group = Group::find($id);
 
-        foreach ($request->all() as $name => $value)
-        {
+        foreach ($request->all() as $name => $value) {
             if (in_array($name, $updatable))
-                $field->$name = $value;
+                $group->$name = $value;
         }
-        $field->save();
+
+        $group->save();
     }
-    
 }
