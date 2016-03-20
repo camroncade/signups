@@ -12,6 +12,8 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
+    Route::get('/', 'SiteController@index');
+
     Route::get('/new', 'SignupsController@create');
     Route::post('/new', 'SignupsController@store');
     Route::get('/{slug}', 'SignupsController@show');

@@ -611,6 +611,22 @@ body {
 .add-new-group:hover {
   background-color: #243448; }
 
+.home {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -100%);
+  transform: translate(-50%, -100%); }
+  .home .lead {
+    margin-bottom: 3rem; }
+  .home .button {
+    border: 2px solid #E84545;
+    padding: 0.5rem 2rem; }
+  .home .button:hover {
+    text-decoration: none;
+    background-color: #E84545;
+    color: #ededed; }
+
 body, html {
   height: 100%;
   width: 100%; }
