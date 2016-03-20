@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use App\Group;
+use App\Field;
+use App\Http\Requests;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class GroupsController extends Controller
 {
@@ -56,6 +56,16 @@ class GroupsController extends Controller
         }
 
         return $group;
+    }
+
+    public function destroy(Request $request)
+    {
+        if ( ! $request->has('id') )
+            return response('Needs a group id to destroy a group!', 400);
+
+        Field::where('group_id', '=', $request->input('id'))->delete();
+
+        return Group::destroy($request->input('id'));
     }
 
 }

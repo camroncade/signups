@@ -24,4 +24,5 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/groups/sort', 'GroupsController@updateSort');
     Route::post('/groups/{id}', 'GroupsController@update');
     Route::post('/groups', 'GroupsController@store');
+    Route::delete('/groups/{id}', 'GroupsController@destroy');
 });

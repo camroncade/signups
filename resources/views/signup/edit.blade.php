@@ -53,6 +53,10 @@
                         <i class="fa fa-arrow-down"></i>                      
                     </div>
                </div> 
+
+                <div class="group-delete">
+                    <i class="fa fa-trash-o"></i>
+                </div>
             </div>
             @endforeach
 

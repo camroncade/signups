@@ -9,9 +9,12 @@ define('edit',['jquery'], function($) {
     var fieldDescriptions = $('.field-description');
 
     var fieldDeleteButtons = $('.form-delete');
+    var groupDeleteButtons = $('.group-delete');
     
     var addFieldButton = $('.add-new-field');
     var addGroupButton = $('.add-new-group');
+
+    var groups = $('.group');
 
     var exitInput = function (event) {
         if (event.which == 13) 
@@ -163,6 +166,31 @@ define('edit',['jquery'], function($) {
         });
     }
 
+    var showDeleteButton = function () {
+        $(this).find('.group-delete').addClass('show');
+    }
+
+    var hideDeleteButton = function () {
+        $(this).find('.group-delete').removeClass('show'); 
+    }
+
+    var deleteGroup = function () {
+        var groupId = $(this).parent().attr('group-id');
+
+        $.ajax({
+            type: 'POST',
+            url: '/groups/' + groupId,
+            data: {
+                _token: csrf_token,
+                _method: "DELETE",
+                id: groupId,
+            },
+            complete: function () {
+                $('.group[group-id="' + groupId + '"]').remove();
+            }
+        });
+    }
+
     signupName.on('keypress', exitInput);
     groupNames.on('keypress', exitInput);
     fieldNames.on('keypress', exitInput);
@@ -177,6 +205,9 @@ define('edit',['jquery'], function($) {
     fieldDeleteButtons.on('click', deleteField);
 
     addGroupButton.on('click', addGroup);
+    $(document).on('mouseenter', '.group', showDeleteButton);
+    $(document).on('mouseleave', '.group', hideDeleteButton);
+    $(document).on('click', '.group-delete', deleteGroup);
 })
 ;
 define('reorder',['jquery'], function($) {
