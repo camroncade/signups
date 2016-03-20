@@ -93,10 +93,10 @@ define(['jquery'], function($) {
         };
     }
 
-    groupUpButtons.on('click', moveGroupUp);
-    groupDownButtons.on('click', moveGroupDown);
+    $(document).on('click', '.group-sort .move-up', moveGroupUp);
+    $(document).on('click', '.group-sort .move-up', moveGroupDown);
 
-    fieldUpButtons.on('click', moveFieldUp);
-    fieldDownButtons.on('click', moveFieldDown);
+    $(document).on('click', '.form-sort .move-up', moveFieldUp);
+    $(document).on('click', '.form-sort .move-down', moveFieldDown);
 
 });

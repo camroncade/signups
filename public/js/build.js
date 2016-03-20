@@ -7,7 +7,9 @@ define('edit',['jquery'], function($) {
     var groupNames = $('.group-name');
     var fieldNames = $('.field-name');
     var fieldDescriptions = $('.field-description');
-
+    
+    var addFieldButton = $('.add-new-field');
+    var addGroupButton = $('.add-new-group');
 
     var exitInput = function (event) {
         if (event.which == 13) 
@@ -59,6 +61,42 @@ define('edit',['jquery'], function($) {
         });
     }
 
+    var addFieldToGroup = function (event) {
+        var input = $('.input').first().attr('field-id', '').clone();
+        input.find('.field-name').val('').attr('field-id', '');
+        input.find('.field-description').val('').attr('field-id', '');
+        input.insertBefore($(this));
+        input.find('.field-name').focus();
+
+        createNewFieldInGroup(
+                $(this).parent().attr('group-id'),
+                input
+        );
+    }
+
+    var createNewFieldInGroup = function (groupId, input) {
+         $.ajax({
+            type: "POST",
+            url: '/fields',
+            data: {
+                _token: csrf_token,
+                "groupId": groupId,
+            },
+            complete: function (response) {
+                fieldId = response.responseJSON.id;
+                input.attr('field-id', fieldId);
+                input.find('.field-name')
+                     .attr('field-id', fieldId)
+                     .focusout(saveFieldName)
+                     .on('keypress', exitInput);
+                input.find('.field-description')
+                     .attr('field-id', fieldId)
+                     .focusout(saveFieldDescription)
+                     .on('keypress', exitInput);
+            }
+        });
+    }
+
     signupName.on('keypress', exitInput);
     groupNames.on('keypress', exitInput);
     fieldNames.on('keypress', exitInput);
@@ -68,6 +106,8 @@ define('edit',['jquery'], function($) {
     groupNames.focusout(saveGroupName);
     fieldNames.focusout(saveFieldName);
     fieldDescriptions.focusout(saveFieldDescription);
+
+    addFieldButton.on('click', addFieldToGroup);
 })
 ;
 define('reorder',['jquery'], function($) {
@@ -165,11 +205,11 @@ define('reorder',['jquery'], function($) {
         };
     }
 
-    groupUpButtons.on('click', moveGroupUp);
-    groupDownButtons.on('click', moveGroupDown);
+    $(document).on('click', '.group-sort .move-up', moveGroupUp);
+    $(document).on('click', '.group-sort .move-up', moveGroupDown);
 
-    fieldUpButtons.on('click', moveFieldUp);
-    fieldDownButtons.on('click', moveFieldDown);
+    $(document).on('click', '.form-sort .move-up', moveFieldUp);
+    $(document).on('click', '.form-sort .move-down', moveFieldDown);
 
 });
 

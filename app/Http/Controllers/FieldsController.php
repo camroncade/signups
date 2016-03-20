@@ -40,4 +40,19 @@ class FieldsController extends Controller
         }
     }
 
+    public function store(Request $request)
+    {
+        if ( ! $request->has('groupId'))
+            return response('Needs a group id to create field!', 400);
+
+        $field = Field::create([
+                    'name' => '',
+                    'description' => '',
+                    'value' => '',
+                    'group_id' => $request->input('groupId'),
+                ]);
+
+        return $field;
+    }
+
 }

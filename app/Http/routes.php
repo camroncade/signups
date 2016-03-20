@@ -18,6 +18,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::post('/fields', 'FieldsController@updateSort');
     Route::post('/fields/{id}', 'FieldsController@update');
+    Route::post('/fields', 'FieldsController@store');
 
     Route::post('/groups', 'GroupsController@updateSort');
     Route::post('/groups/{id}', 'GroupsController@update');
