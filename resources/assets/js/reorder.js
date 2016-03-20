@@ -54,7 +54,7 @@ define(['jquery'], function($) {
 
         $.ajax({
             type: 'POST',
-            url: '/groups',
+            url: '/groups/sort',
             data: {
                 _token: csrf_token,
                 sort: JSON.stringify(order.get()),

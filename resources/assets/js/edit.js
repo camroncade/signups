@@ -64,7 +64,7 @@ define(['jquery'], function($) {
     }
 
     var addFieldToGroup = function (event) {
-        var input = $('.input').first().attr('field-id', '').clone();
+        var input = $('.input').first().clone().attr('field-id', '');
         input.find('.field-name').val('').attr('field-id', '');
         input.find('.field-description').val('').attr('field-id', '');
         input.insertBefore($(this));
@@ -102,6 +102,51 @@ define(['jquery'], function($) {
         });
     }
 
+    var addGroup = function () {
+        var group = $('.group').first().clone().attr('group-id', '');
+        group.find('.group-name').val('').attr('group-id', '');
+        group.find('.input').remove();
+        
+        var input = $('.input').first().clone().attr('field-id', '');
+        input.find('.field-name').val('').attr('field-id', '');
+        input.find('.field-description').val('').attr('field-id', '');
+        input.insertBefore(group.find('.add-new-field'));
+
+        group.insertBefore($(this));
+
+        createNewGroupForForm(
+            $('meta[name="signup-id"]').attr('content'),
+            group,
+            input
+        );
+    }
+
+    var createNewGroupForForm = function (signupId, group, input) {
+        $.ajax({
+            type: 'POST',
+            url: '/groups',
+            data: {
+                _token: csrf_token,
+                signupId: signupId,
+                sort_index: $('.group').length,
+            },
+            complete: function (response) {
+                groupId = response.responseJSON.id;
+                group.attr('group-id', groupId);
+                group.find('.group-name').attr('group-id', groupId)
+                                         .on('keypress', exitInput)
+                                         .focusout(saveGroupName)
+                                         .focus();
+                
+                createNewFieldInGroup(
+                        groupId,
+                        input
+                );
+
+            }
+        });
+    }
+
     var deleteField = function () {
         input = $(this).parent().parent(); 
         $.ajax({
@@ -130,4 +175,6 @@ define(['jquery'], function($) {
 
     addFieldButton.on('click', addFieldToGroup);
     fieldDeleteButtons.on('click', deleteField);
+
+    addGroupButton.on('click', addGroup);
 })

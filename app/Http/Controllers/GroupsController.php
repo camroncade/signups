@@ -38,4 +38,24 @@ class GroupsController extends Controller
         }
     }
 
+    public function store(Request $request)
+    {
+        if ( ! $request->has('signupId') )
+            return response('Needs a signup id to create a group!', 400);
+
+        $group = Group::create([
+            'name' => '',
+            'description' => '',
+            'signup_id' => $request->input('signupId'),
+        ]);
+
+        if ($request->has('sort_index'))
+        {
+            $group->sort_index = $request->input('sort_index');
+            $group->save();
+        }
+
+        return $group;
+    }
+
 }

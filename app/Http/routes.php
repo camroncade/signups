@@ -21,6 +21,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/fields', 'FieldsController@store');
     Route::delete('/fields/{id}', 'FieldsController@destroy');
 
-    Route::post('/groups', 'GroupsController@updateSort');
+    Route::post('/groups/sort', 'GroupsController@updateSort');
     Route::post('/groups/{id}', 'GroupsController@update');
+    Route::post('/groups', 'GroupsController@store');
 });

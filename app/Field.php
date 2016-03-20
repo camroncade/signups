@@ -11,5 +11,6 @@ class Field extends Model
         'description',
         'value',
         'group_id',
+        'sort_index',
     ];
 }
