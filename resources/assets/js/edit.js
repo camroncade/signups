@@ -201,7 +201,7 @@ define(['jquery'], function($) {
     fieldNames.focusout(saveFieldName);
     fieldDescriptions.focusout(saveFieldDescription);
 
-    addFieldButton.on('click', addFieldToGroup);
+    $(document).on('click', '.add-new-field', addFieldToGroup);
     fieldDeleteButtons.on('click', deleteField);
 
     addGroupButton.on('click', addGroup);
