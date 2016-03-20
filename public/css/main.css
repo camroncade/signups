@@ -611,6 +611,43 @@ body {
 .add-new-group:hover {
   background-color: #243448; }
 
+body, html {
+  height: 100%;
+  width: 100%; }
+
+.page-wrapper {
+  height: 100%;
+  width: 100%;
+  position: relative; }
+
+.create-signup-form {
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  min-width: 400px;
+  padding: 25px; }
+  .create-signup-form h2 {
+    margin-top: 0.5rem; }
+  .create-signup-form .form-group {
+    margin: 1rem 0; }
+  .create-signup-form label {
+    display: block; }
+  .create-signup-form input {
+    display: block;
+    width: 100%;
+    font-size: 1em;
+    line-height: 2rem;
+    padding: 0.25rem 0.5rem; }
+  .create-signup-form button {
+    width: 100%;
+    background-color: #E84545;
+    padding: 0.5rem 1rem;
+    border: 0px;
+    color: #fff; }
+
 body {
   background-color: #ededed; }
 
