@@ -7,6 +7,8 @@ define('edit',['jquery'], function($) {
     var groupNames = $('.group-name');
     var fieldNames = $('.field-name');
     var fieldDescriptions = $('.field-description');
+
+    var fieldDeleteButtons = $('.form-delete');
     
     var addFieldButton = $('.add-new-field');
     var addGroupButton = $('.add-new-group');
@@ -81,6 +83,7 @@ define('edit',['jquery'], function($) {
             data: {
                 _token: csrf_token,
                 "groupId": groupId,
+                "sort_index": input.parent().find('input').length,
             },
             complete: function (response) {
                 fieldId = response.responseJSON.id;
@@ -93,7 +96,25 @@ define('edit',['jquery'], function($) {
                      .attr('field-id', fieldId)
                      .focusout(saveFieldDescription)
                      .on('keypress', exitInput);
+                input.find('.form-delete')
+                     .on('click', deleteField);
             }
+        });
+    }
+
+    var deleteField = function () {
+        input = $(this).parent().parent(); 
+        $.ajax({
+            type: "POST",
+            url: "/fields/" + input.attr('field-id'),
+            data: {
+                _token: csrf_token,
+                _method: "DELETE",
+                id: input.attr('field-id'),
+            },
+            complete: function () {
+                input.remove();
+            },
         });
     }
 
@@ -108,6 +129,7 @@ define('edit',['jquery'], function($) {
     fieldDescriptions.focusout(saveFieldDescription);
 
     addFieldButton.on('click', addFieldToGroup);
+    fieldDeleteButtons.on('click', deleteField);
 })
 ;
 define('reorder',['jquery'], function($) {
@@ -182,7 +204,7 @@ define('reorder',['jquery'], function($) {
 
         $.ajax({
             type: 'POST',
-            url: '/fields',
+            url: '/fields/sort',
             data: {
                 _token: csrf_token,
                 sort: JSON.stringify(order.get()),

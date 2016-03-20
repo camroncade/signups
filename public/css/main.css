@@ -477,7 +477,7 @@ body {
   .group .input {
     border: 1px solid #ededed;
     margin: 1rem 0;
-    padding: 0.5rem 2.5rem 0.5rem 0.5rem;
+    padding: 0.5rem 4.5rem 0.5rem 0.5rem;
     position: relative; }
     .group .input .field-name {
       border: none;
@@ -500,6 +500,26 @@ body {
       border-bottom: 1px solid #444444;
       outline: none;
       background-color: #fafafa; }
+    .group .input .form-options {
+      position: absolute;
+      top: 0;
+      right: 1.5em;
+      height: 100%;
+      width: 2rem;
+      background-color: #fafafa; }
+      .group .input .form-options .form-delete {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        font-size: 1rem;
+        color: #8c8c8c;
+        padding: 1rem 0.5rem; }
+      .group .input .form-options .form-delete:hover {
+        cursor: hand;
+        cursor: pointer;
+        color: #595959; }
     .group .input .form-sort {
       position: absolute;
       top: 0;

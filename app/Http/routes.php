@@ -16,9 +16,10 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/{slug}/edit', 'SignupsController@edit');
     Route::post('/{slug}/edit', 'SignupsController@update');
 
-    Route::post('/fields', 'FieldsController@updateSort');
+    Route::post('/fields/sort', 'FieldsController@updateSort');
     Route::post('/fields/{id}', 'FieldsController@update');
     Route::post('/fields', 'FieldsController@store');
+    Route::delete('/fields/{id}', 'FieldsController@destroy');
 
     Route::post('/groups', 'GroupsController@updateSort');
     Route::post('/groups/{id}', 'GroupsController@update');

@@ -52,7 +52,21 @@ class FieldsController extends Controller
                     'group_id' => $request->input('groupId'),
                 ]);
 
+        if ($request->has('sort_index'))
+        {
+            $field->sort_index = $request->input('sort_index');
+            $field->save();
+        }
+
         return $field;
+    }
+
+    public function destroy(Request $request)
+    {
+        if ( ! $request->has('id')) 
+            return response('Needs a field id to delete a field!', 400);
+
+        return Field::destroy($request->input('id'));
     }
 
 }

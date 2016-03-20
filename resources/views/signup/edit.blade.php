@@ -25,6 +25,12 @@
                     <div class="description">
                         <textarea name="description" field-id="{{ $field->id }}" class="field-description" placeholder="Description (optional)">{{ $field->description }}</textarea>
                     </div>
+
+                    <div class="form-options">
+                        <div class="form-delete">
+                            <i class="fa fa-trash-o"></i>
+                        </div>
+                    </div>
                     
                     <div class="form-sort">
                         <div class="move-up">

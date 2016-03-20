@@ -70,7 +70,7 @@ define(['jquery'], function($) {
 
         $.ajax({
             type: 'POST',
-            url: '/fields',
+            url: '/fields/sort',
             data: {
                 _token: csrf_token,
                 sort: JSON.stringify(order.get()),

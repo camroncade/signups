@@ -44,7 +44,7 @@
     .input {
         border: 1px solid $light-grey; 
         margin: 1rem 0;
-        padding: 0.5rem 2.5rem 0.5rem 0.5rem;
+        padding: 0.5rem 4.5rem 0.5rem 0.5rem;
         position: relative;
 
         .field-name {
@@ -75,6 +75,30 @@
             border-bottom: 1px solid $dark-grey;
             outline: none;
             background-color: lighten($light-grey, 5%);
+        }
+
+        .form-options {
+            position: absolute;
+            top: 0;
+            right: 1.5em; 
+            height: 100%;
+            width: 2rem;
+            background-color: lighten($light-grey, 5%);
+
+            .form-delete {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 1rem;
+                color: darken($mid-grey, 5%);
+                padding: 1rem 0.5rem;
+            }
+
+            .form-delete:hover {
+                cursor: hand; cursor: pointer;
+                color: darken($mid-grey, 25%);
+            }
         }
 
         .form-sort {
